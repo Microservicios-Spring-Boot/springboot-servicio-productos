@@ -19,7 +19,7 @@ public class ProductoController {
 	@Autowired
 	private Environment env;
 	
-	@Value("${server.port}") // Permite inyectar valores del archivo de properties
+	@Value("${server.port}") // Permite inyectar valores del archivo de properties, es CERO actualmente
 	private Integer port;
 	
 	@Autowired
@@ -28,8 +28,8 @@ public class ProductoController {
 	@GetMapping("/listar")
 	public List<Producto> listar() {
 		return productoService.findAll().stream().map(producto -> {
-			// producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-			producto.setPort(port);
+			producto.setPort(Integer.parseInt(env.getProperty("local.server.port"))); // Permite tomar el puerto real asignado
+			// producto.setPort(port);
 			return producto;
 		}).collect(Collectors.toList());
 	}
