@@ -2,7 +2,7 @@ package com.lagm.springboot.app.productos.models.service;
 
 import java.util.List;
 
-import com.lagm.springboot.app.productos.models.entity.Producto;
+import com.lagm.springboot.app.commons.models.entity.Producto;
 
 public interface IProductoService {
 	public List<Producto> findAll();
